@@ -13,7 +13,7 @@ class medical_dictionary():
         self.dictionary = {}
 
         with open(path_to_dictionary, mode='r') as inp:
-            reader = csv.reader(inp)
+            reader = csv.reader(inp, delimiter=';')
             self.dictionary = {rows[0]:rows[1] for rows in reader}
 
     def remove_punctuation(self, input_text):
@@ -71,3 +71,7 @@ if __name__ == "__main__":
     print(medical_dictionary.reduced_medical_dictionary_data_as_text("Patient has an abdominal abscess."))
     print("Enrichted text:")
     print(medical_dictionary.enrich_text_with_medical_dictionary_data("Patient has an abdominal abscess."))
+    print("TEST NEW TEXT SNIPPETS:")
+    print(medical_dictionary.reduced_medical_dictionary_data_as_text("The patient was diagnosed with dementia. This can be treated as an outpatient."))
+    print(medical_dictionary.reduced_medical_dictionary_data_as_text("The X-ray shows a clean fracture of the right lower leg."))
+    print(medical_dictionary.reduced_medical_dictionary_data_as_text("The patient shows some abscesses. This needs to be treated as an inpatient."))
