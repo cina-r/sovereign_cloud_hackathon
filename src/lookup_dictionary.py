@@ -60,7 +60,7 @@ class medical_dictionary():
 
 def add_html_tags_to_text(text, term_dict):
     for key in term_dict:
-        text = text.replace(key, '<abbr style="background-color:Yellow;" title="' + term_dict[key] + '">' + key + '</abbr>')
+        text = text.replace(key, '<abbr style="background-color:Gray;" title="' + term_dict[key] + '">' + key + '</abbr>')
     return text
 
 if __name__ == "__main__":
