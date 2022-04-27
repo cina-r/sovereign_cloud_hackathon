@@ -2,6 +2,7 @@ import streamlit as st
 import deepl
 import lookup_dictionary
 import speech_recognition as sr
+import deepl
 
 st.set_page_config(
     layout="wide", page_title="Health Care", page_icon="🚑"
@@ -87,6 +88,16 @@ if navi == "Patient's View":
         st.markdown("---")
         st.markdown("**Glossary**")
         st.markdown(medical_dictionary.reduced_medical_dictionary_data_as_text(st.session_state['diagnosis_text']), unsafe_allow_html=True)
+
+        auth_key = "bf16c3b7-c877-103a-8e59-08527ae43ef9:fx"  # Replace with your key
+        translator = deepl.Translator(auth_key) 
+
+        # Translate text into a target language, in this case, French
+        language = ["DE", "EN-GB", "RU"]
+        input_lang = st.selectbox("Language:", options=language)
+        result = translator.translate_text(st.session_state['diagnosis_text'], target_lang=input_lang)
+        st.write(result)  # "Bonjour, le monde !"
+        # Note: printing or converting the result to a string uses the output text
 
         
 
