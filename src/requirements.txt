@@ -1,2 +1,3 @@
 Flask==2.0.3
 ptvsd==4.3.2 # Required for debugging.
+streamlit
