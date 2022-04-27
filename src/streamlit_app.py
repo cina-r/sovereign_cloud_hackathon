@@ -44,7 +44,7 @@ if navi == "Patient Info":
     sex = st.text_input(label="Sex:")
     # age = st.text_input(label="Age:")
     age = st.slider("Age:", 1, 100)
-    size = st.text_input(label="Size:")
+    size = st.text_input(label="Height:")
     weight = st.text_input(label="Weight:")
 
     # st.write("")
