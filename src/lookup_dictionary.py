@@ -1,6 +1,5 @@
 import pandas as pd
 import csv
-#from IPython.display import display
 
 class medical_dictionary():
     """
@@ -51,12 +50,13 @@ class medical_dictionary():
         """
         Enrich text with medical dictionary data
         """
+        enriched_text = ""
         for word in input_text.split():
             preprocessed_word = self.preprocess_input_text(word)
+            enriched_text += word + " "
             if preprocessed_word in self.dictionary:
-                # TODO: replace word in text with word (not preprocessed) + explanation from dict
-                print("Found word")
-        return "return enriched text"
+                enriched_text += f"({self.dictionary[preprocessed_word]}) "
+        return enriched_text
 
 def add_html_tags_to_text(text, term_dict):
     for key in term_dict:
