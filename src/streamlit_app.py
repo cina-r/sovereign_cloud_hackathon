@@ -35,9 +35,10 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 
-navi = st.sidebar.radio('Navigation', options=["Patient Info", "Diagnosis"])
+navi = st.sidebar.radio('Navigation', options=["Doctor's View", "Patient's View"])
+diagnosis_doc=""
 
-if navi == "Patient Info":
+if navi == "Doctor's View":
     # st.markdown('<p class="big-font">Patient Info</p>', unsafe_allow_html=True)
 
     name = st.text_input(label="Name:")
@@ -46,6 +47,7 @@ if navi == "Patient Info":
     age = st.slider("Age:", 1, 100)
     size = st.text_input(label="Height:")
     weight = st.text_input(label="Weight:")
+    diagnosis_doc = st.selectbox("Diagnosis:", ["audio-test-1.wav","audio-test-2.wav"])
 
     # st.write("")
     # st.markdown('<p class="big-font">Diagnosis</p>', unsafe_allow_html=True)
@@ -57,10 +59,9 @@ if navi == "Patient Info":
     #     st.write(f"Translation: {result}")
 
 
-if navi == "Diagnosis":
+if navi == "Patient's View":
     # st.markdown('<p class="big-font">Diagonis</p>', unsafe_allow_html=True)
     # st.write("")
-    diagnosis_doc = st.text_input(label="Diagnosis:")
 
     st.write("Diagnosis explained:")
     if diagnosis_doc:
