@@ -1,5 +1,19 @@
 # Kubernetes Hello World with Cloud Code
 
+## Setup
+
+* Install system packages
+```
+sudo apt-get install python3 python3-all-dev python3-pip build-essential swig git libpulse-dev libasound2-dev
+```
+
+* Install Python packages
+```
+pip3 install pocketsphinx SpeechRecognition pydub
+```
+
+---
+
 "Hello World" is a Kubernetes application that contains a single
 [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and a corresponding
 [Service](https://kubernetes.io/docs/concepts/services-networking/service/). The Deployment contains a web server that renders a simple webpage.
