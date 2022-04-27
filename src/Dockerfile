@@ -14,6 +14,10 @@ WORKDIR /app
 # copy the requirements file used for dependencies
 COPY requirements.txt .
 
+RUN apt-get update -y
+RUN apt-get install -qq python python-dev build-essential swig 	libasound2-dev libpulse-dev
+# RUN apt-get install -y python3-pocketsphinx
+
 # Install any needed packages specified in requirements.txt
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
