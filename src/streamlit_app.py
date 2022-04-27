@@ -26,23 +26,29 @@ if 'diagnosis_text' not in st.session_state:
     st.session_state['diagnosis_text'] = ''
     st.session_state['age'] = 1
     st.session_state['name'] = ''
-    st.session_state['sex'] = ''
-    st.session_state['weight'] = ''
-    st.session_state['height'] = ''
+    st.session_state['sex'] = 'male'
+    st.session_state['weight'] = 70
+    st.session_state['height'] = 170
 
 
 if navi == "Doctor's View":
     # st.markdown('<p class="big-font">Patient Info</p>', unsafe_allow_html=True)
+    name, gender = st.columns([8, 2])
+    st.session_state['name'] = name.text_input("Name:", value=st.session_state['name'])
+    genders = ["male", "female", "diverse"]
+    st.session_state['sex'] = gender.selectbox("Gender:", options=genders, index=genders.index(st.session_state['sex']))
+    age, weight, height = st.columns([3, 3, 3])
+    st.session_state['age'] = age.slider("Age:", 1, 100, value=st.session_state['age'])
+    st.session_state['height'] = weight.slider("Height:", 20, 220, value = st.session_state['height'])
+    st.session_state['weight'] = height.slider("Weight:", 1, 200, value = st.session_state['weight'])
+    audio_file, audio_play = st.columns([3, 3])
+    diagnosis_doc = audio_file.selectbox("Diagnosis:", ["audio-test-1.wav","audio-test-2.wav", "dementia.wav"])
 
-    st.session_state['name'] = st.text_input(label="Name:", value = st.session_state['name'])
-    st.session_state['sex'] = st.text_input(label="Sex:", value = st.session_state['sex'])
-    st.session_state['age'] = st.slider("Age:", 1, 100, value = st.session_state['age'])
-    st.session_state['height'] = st.text_input(label="Height:", value = st.session_state['height'])
-    st.session_state['weight'] = st.text_input(label="Weight:", value = st.session_state['weight'])
-    diagnosis_doc = st.selectbox("Diagnosis:", ["audio-test-1.wav","audio-test-2.wav"])
+
     audio_file = open(diagnosis_doc, 'rb')
     audio_bytes = audio_file.read()
-    st.audio(audio_bytes, format='audio/wav')
+    audio_play.markdown("Listen to diagnosis:")
+    audio_play.audio(audio_bytes, format='audio/wav')
     if st.button("Speech2Text"):
         r = sr.Recognizer()
         with sr.AudioFile(diagnosis_doc) as source:
@@ -51,7 +57,8 @@ if navi == "Doctor's View":
             # recognize (convert from speech to text)
             text = r.recognize_sphinx(audio_data)
             st.session_state['diagnosis_text'] = text
-    st.write(st.session_state['diagnosis_text'])
+    st.session_state['diagnosis_text'] = st.text_area("", value=st.session_state['diagnosis_text'])
+    # st.write(st.session_state['diagnosis_text'])
 
 
     # st.write("")
@@ -74,6 +81,14 @@ if navi == "Patient's View":
         enriched_diagnosis = lookup_dictionary.add_html_tags_to_text(st.session_state['diagnosis_text'], medical_dictionary.reduced_medical_dictionary_data(st.session_state['diagnosis_text']))
 
         st.markdown(enriched_diagnosis, unsafe_allow_html=True)
+
+        st.write("\n")
+        st.write("\n")
+        st.markdown("---")
+        st.markdown("**Glossary**")
+        st.markdown(medical_dictionary.reduced_medical_dictionary_data_as_text(st.session_state['diagnosis_text']), unsafe_allow_html=True)
+
+        
 
 
     # input_text = st.text_input(label="In which language shall the diagnosis be translated?")
