@@ -43,7 +43,7 @@ class medical_dictionary():
         reduced_dict_as_text = ''
         reduced_dict = self.reduced_medical_dictionary_data(input_text)
         for key in reduced_dict:
-            reduced_dict_as_text += f"Explanation of {key}: {self.dictionary[key]} \n\n"
+            reduced_dict_as_text += f"**{key}**: {self.dictionary[key]} <br><br>"
         return reduced_dict_as_text
 
     def enrich_text_with_medical_dictionary_data(self, input_text):

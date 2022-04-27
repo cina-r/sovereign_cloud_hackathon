@@ -82,6 +82,14 @@ if navi == "Patient's View":
 
         st.markdown(enriched_diagnosis, unsafe_allow_html=True)
 
+        st.write("\n")
+        st.write("\n")
+        st.markdown("---")
+        st.markdown("**Glossary**")
+        st.markdown(medical_dictionary.reduced_medical_dictionary_data_as_text(st.session_state['diagnosis_text']), unsafe_allow_html=True)
+
+        
+
 
     # input_text = st.text_input(label="In which language shall the diagnosis be translated?")
     # language = st.selectbox('In which language shall the diagnosis be translated?', ['RU', 'DE', 'EN-GB', 'FR'])
