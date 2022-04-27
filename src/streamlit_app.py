@@ -1,5 +1,6 @@
 import streamlit as st
 import deepl
+import lookup_dictionary
 
 # Apply a general css style to a streamlit page
 # NOTE that this injects HTML via the unsafe_allow_html=True parameter
@@ -63,12 +64,11 @@ if navi == "Diagnosis":
 
     st.write("Diagnosis explained:")
     if diagnosis_doc:
-        st.write(diagnosis_doc)
+        medical_dictionary = lookup_dictionary.medical_dictionary('static/medical_dictionary.csv')
+        enriched_diagnosis = lookup_dictionary.add_html_tags_to_text(diagnosis_doc, medical_dictionary.reduced_medical_dictionary_data(diagnosis_doc))
 
-    html_string = '''The <abbr style="background-color:Yellow;" title="Defense Advanced Research Projects Agency">
-    DARPA</abbr> was instrumental in the history of the internet.'''
+        st.markdown(enriched_diagnosis, unsafe_allow_html=True)
 
-    st.markdown(html_string, unsafe_allow_html=True)
 
     # input_text = st.text_input(label="In which language shall the diagnosis be translated?")
     # language = st.selectbox('In which language shall the diagnosis be translated?', ['RU', 'DE', 'EN-GB', 'FR'])

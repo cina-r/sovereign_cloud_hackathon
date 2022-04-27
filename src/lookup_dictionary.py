@@ -58,11 +58,16 @@ class medical_dictionary():
                 print("Found word")
         return "return enriched text"
 
+def add_html_tags_to_text(text, term_dict):
+    for key in term_dict:
+        text = text.replace(key, '<abbr style="background-color:Yellow;" title="' + term_dict[key] + '">' + key + '</abbr>')
+    return text
+
 if __name__ == "__main__":
     medical_dictionary = medical_dictionary('src/static/medical_dictionary.csv')
     print("Reduced dict:")
-    print(medical_dictionary.reduced_medical_dictionary_data("Patient has an Abdominal abscess."))
+    print(medical_dictionary.reduced_medical_dictionary_data("Patient has an abdominal abscess."))
     print("Reduced dict as text:")
-    print(medical_dictionary.reduced_medical_dictionary_data_as_text("Patient has an Abdominal abscess."))
+    print(medical_dictionary.reduced_medical_dictionary_data_as_text("Patient has an abdominal abscess."))
     print("Enrichted text:")
-    print(medical_dictionary.enrich_text_with_medical_dictionary_data("Patient has an Abdominal abscess."))
+    print(medical_dictionary.enrich_text_with_medical_dictionary_data("Patient has an abdominal abscess."))
