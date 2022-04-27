@@ -14,12 +14,12 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     """Return a simple HTML page with a friendly message."""
-    message = "Hack the planet // Free Lunch"
+    message = "Hack the planet // No free Lunch :("
 
     return render_template('index.html', message=message)
 
 
-@app.route('var/<name>')
+@app.route('/var/<name>')
 def var(name):
     """Return a simple HTML page with a friendly message."""
     return f"<h2>{name}</h2>"
