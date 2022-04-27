@@ -1,6 +1,5 @@
 import pandas as pd
 import csv
-#from IPython.display import display
 
 class medical_dictionary():
     """
@@ -51,12 +50,13 @@ class medical_dictionary():
         """
         Enrich text with medical dictionary data
         """
+        enriched_text = ""
         for word in input_text.split():
             preprocessed_word = self.preprocess_input_text(word)
+            enriched_text += word + " "
             if preprocessed_word in self.dictionary:
-                # TODO: replace word in text with word (not preprocessed) + explanation from dict
-                print("Found word")
-        return "return enriched text"
+                enriched_text += f"({self.dictionary[preprocessed_word]}) "
+        return enriched_text
 
 if __name__ == "__main__":
     medical_dictionary = medical_dictionary('src/static/medical_dictionary.csv')
@@ -66,3 +66,4 @@ if __name__ == "__main__":
     print(medical_dictionary.reduced_medical_dictionary_data_as_text("Patient has an Abdominal abscess."))
     print("Enrichted text:")
     print(medical_dictionary.enrich_text_with_medical_dictionary_data("Patient has an Abdominal abscess."))
+    
