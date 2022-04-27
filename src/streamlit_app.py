@@ -1,9 +1,6 @@
 import streamlit as st
 import deepl
 
-auth_key = "bf16c3b7-c877-103a-8e59-08527ae43ef9:fx"  # Replace with your key
-translator = deepl.Translator(auth_key) 
-
 # Apply a general css style to a streamlit page
 # NOTE that this injects HTML via the unsafe_allow_html=True parameter
 # def css_styling():
@@ -23,6 +20,10 @@ translator = deepl.Translator(auth_key)
 # with st.sidebar:
 #     # with st.echo():
 #     st.write("This code will be printed to the sidebar.")
+
+#DeepL translator
+auth_key = "bf16c3b7-c877-103a-8e59-08527ae43ef9:fx"  # Replace with your key
+translator = deepl.Translator(auth_key)
 
 st.markdown("""
     <style>
@@ -63,6 +64,11 @@ if navi == "Diagnosis":
     st.write("Diagnosis explained:")
     if diagnosis_doc:
         st.write(diagnosis_doc)
+
+    html_string = '''The <abbr style="background-color:Yellow;" title="Defense Advanced Research Projects Agency">
+    DARPA</abbr> was instrumental in the history of the internet.'''
+
+    st.markdown(html_string, unsafe_allow_html=True)
 
     # input_text = st.text_input(label="In which language shall the diagnosis be translated?")
     # language = st.selectbox('In which language shall the diagnosis be translated?', ['RU', 'DE', 'EN-GB', 'FR'])
