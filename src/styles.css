@@ -1,50 +1,30 @@
 div[role="radiogroup"] {
     border-left: 2px solid grey;
     padding-left: 10px;
-    }
-    
-    
-    .FixedHeightContainer
-    {
+}
+.FixedHeightContainer {
     float:right;
     height: 250px;
     width:250px;  
     overflow-y: scroll;
-    }
-    
-    MainMenu {visibility: hidden; }
-    footer {visibility: hidden;}
-    
-    h3
-    {
+}
+MainMenu {
+    visibility: hidden;
+}
+footer {
+    visibility: hidden;
+}
+h3 {
     color: white;
-    }
-    
-    /*Suchleiste*/
-    /* TODO: Das ist nicht nur die Suchleiste, sondern auch der Hintergrund der selectbox */
-    /* .st-el 
-    {
-        background-color: white;
-    } */
-    /*Überschriften Navigation*/
-    /*.css-yf2of3
-    {
-        font-family: "Source Sans Pro", sans-serif;
-        font-weight: 600;
-        font-size: 30px;
-        padding-bottom: 30px;
-        padding-top: 30px;
-    }*/
-    
-    div[role="radiogroup"] {
-        padding-left: 10px;
-        background-color: #273346;
-        border-radius: 5px;
-        border: 2px solid #273346;
-        padding-top:5px;
-        padding-bottom:5px;
-    }
-    
-    .css-9wfa1c {
-        font-weight: bold;
-    }
+}
+div[role="radiogroup"] {
+    padding-left: 10px;
+    background-color: #273346;
+    border-radius: 5px;
+    border: 2px solid #273346;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.css-9wfa1c {
+    font-weight: bold;
+}
