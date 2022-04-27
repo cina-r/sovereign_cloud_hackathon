@@ -22,7 +22,7 @@ def hello():
 @app.route('/var/<name>')
 def var(name):
     """Return a simple HTML page with a friendly message."""
-    return f"<h2>{name}</h2>"
+    return f"<h2>{name.upper()}</h2>"
 
 
 if __name__ == '__main__':
