@@ -1,4 +1,8 @@
 import streamlit as st
+import deepl
+
+auth_key = "bf16c3b7-c877-103a-8e59-08527ae43ef9:fx"  # Replace with your key
+translator = deepl.Translator(auth_key) 
 
 # Apply a general css style to a streamlit page
 # NOTE that this injects HTML via the unsafe_allow_html=True parameter
@@ -16,8 +20,11 @@ import streamlit as st
 # 
 # css_styling()
 st.write("Test")
-x = st.selectbox('Klaus', ['a', 'b', 'c'])
-st.write(f"You selected: {x}")
+input_text = st.text_input(label="What do you want to get translated?")
+language = st.selectbox('Language', ['RU', 'DE', 'EN-GB', 'FR'])
+if input_text:
+    result = translator.translate_text(input_text, target_lang=language)
+    st.write(f"Translation: {result}")
 
 y = st.slider("MySlider", 1, 100)
 

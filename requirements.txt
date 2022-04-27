@@ -1,3 +1,4 @@
+deepl
 absl-py==1.0.0
 asgiref==3.5.0
 astroid==2.11.2
