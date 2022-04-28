@@ -5,7 +5,7 @@ import speech_recognition as sr
 import deepl
 
 st.set_page_config(
-    layout="wide", page_title="HealthCareAssistent", page_icon="🚑"
+    layout="wide", page_title="HealthCareAssist", page_icon="🚑"
 )  # Use the full page instead of a narrow central column
 
 
@@ -20,7 +20,7 @@ local_css("styles.css")
 auth_key = "bf16c3b7-c877-103a-8e59-08527ae43ef9:fx"  # Replace with your key
 translator = deepl.Translator(auth_key)
 
-st.sidebar.markdown("**HealthCareAssistent**", unsafe_allow_html=True)
+st.sidebar.markdown("**HealthCareAssist** Pro", unsafe_allow_html=True)
 st.sidebar.image("logo.jpg", width=128)
 st.sidebar.markdown("powered by <font color=#e20075>Telekom</font>", unsafe_allow_html=True)
 
