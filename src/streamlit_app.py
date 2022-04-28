@@ -22,7 +22,7 @@ translator = deepl.Translator(auth_key)
 
 st.sidebar.markdown("**HealthCareAssist** Pro", unsafe_allow_html=True)
 st.sidebar.image("logo.jpg", width=128)
-st.sidebar.markdown("powered by <font color=#e20075>Telekom</font>", unsafe_allow_html=True)
+st.sidebar.markdown("powered by <font color=#e20075>Telekom</font> and <font color=#4285F4>Google</font>", unsafe_allow_html=True)
 
 st.sidebar.markdown("<br>", unsafe_allow_html=True)
 navi = st.sidebar.radio("", options=["Doctor's View", "Patient's View"])
@@ -59,7 +59,7 @@ if navi == "Doctor's View":
         st.session_state["height"] = weight.slider("Height:", 20, 220, value=st.session_state["height"])
         st.session_state["weight"] = height.slider("Weight:", 1, 200, value=st.session_state["weight"])
         audio_file, audio_play = st.columns([3, 3])
-        diagnosis_doc = audio_file.selectbox("Diagnosis:", ["audio-test-1.wav", "audio-test-2.wav", "dementia.wav"])
+        diagnosis_doc = audio_file.selectbox("Diagnosis:", ["Dr_Michaelis_Patient_1.wav", "Dr_Michaelis_Patient_2.wav", "Dr_Michaelis_Patient_3.wav"])
 
         audio_file = open(diagnosis_doc, "rb")
         audio_bytes = audio_file.read()
@@ -76,7 +76,6 @@ if navi == "Doctor's View":
         st.session_state["diagnosis_text"] = st.text_area("", value=st.session_state["diagnosis_text"])
         if st.button("Save"):
             st.success("Patient data saved")
-            st.write("... not really, this is just a mcokup")
     else:
         name, gender = st.columns([8, 2])
         name.text_input("Name:", value=patient)
