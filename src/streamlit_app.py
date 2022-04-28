@@ -59,7 +59,7 @@ if navi == "Doctor's View":
         st.session_state["height"] = weight.slider("Height:", 20, 220, value=st.session_state["height"])
         st.session_state["weight"] = height.slider("Weight:", 1, 200, value=st.session_state["weight"])
         audio_file, audio_play = st.columns([3, 3])
-        diagnosis_doc = audio_file.selectbox("Diagnosis:", ["fracture.wav", "inpatient.wav", "dementia.wav"])
+        diagnosis_doc = audio_file.selectbox("Diagnosis:", ["dementia.wav", "fracture.wav", "inpatient.wav"])
 
         audio_file = open(diagnosis_doc, "rb")
         audio_bytes = audio_file.read()
