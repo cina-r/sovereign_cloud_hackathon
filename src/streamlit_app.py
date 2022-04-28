@@ -129,7 +129,7 @@ if navi == "Patient's View":
         language = ["DE", "EN-GB", "RU"]
         input_lang = st.selectbox("Language:", options=language)
         result = translator.translate_text(st.session_state["diagnosis_text"], target_lang=input_lang)
-        st.markdown(str(result)[1:-1], unsafe_allow_html=True)  # "Bonjour, le monde !"
+        st.markdown(str(result), unsafe_allow_html=True)  # "Bonjour, le monde !"
         # Note: printing or converting the result to a string uses the output text
 
     # input_text = st.text_input(label="In which language shall the diagnosis be translated?")
