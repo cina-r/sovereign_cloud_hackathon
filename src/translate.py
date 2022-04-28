@@ -9,7 +9,7 @@
 
 import deepl
 
-auth_key = "bf16c3b7-c877-103a-8e59-08527ae43ef9:fx"  # Replace with your key
+auth_key = "1d7fb184-7786-841f-8961-7dc8d1e92f89:fx"  # Replace with your key
 translator = deepl.Translator(auth_key) 
 
 # Translate text into a target language, in this case, French
