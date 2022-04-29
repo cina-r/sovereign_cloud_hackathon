@@ -1,4 +1,4 @@
-# Kubernetes Hello World with Cloud Code
+# Kubernetes HealthCareAssist Pro with Cloud Code
 
 ## Setup
 
@@ -14,7 +14,7 @@ pip3 install pocketsphinx SpeechRecognition pydub
 
 ---
 
-"Hello World" is a Kubernetes application that contains a single
+"HealthCareAssist Pro" is a Kubernetes application that contains a single
 [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) and a corresponding
 [Service](https://kubernetes.io/docs/concepts/services-networking/service/). The Deployment contains a web server that renders a simple webpage.
 
